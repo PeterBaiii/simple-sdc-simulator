@@ -1,0 +1,637 @@
+================================================================================
+Tiny Language Model Fault Injection Test
+================================================================================
+Using device: cuda
+
+Training model on tiny corpus...
+Vocabulary size: 38
+Block size: 32
+Step 100 | train loss 3.3831
+Step 200 | train loss 3.1370
+Step 300 | train loss 2.9415
+Step 400 | train loss 2.7244
+Step 500 | train loss 2.6152
+Step 600 | train loss 2.6042
+Step 700 | train loss 2.5172
+Step 800 | train loss 2.4756
+Step 900 | train loss 2.4415
+Step 1000 | train loss 2.4124
+
+Training complete. Starting fault injection tests...
+
+Test Configuration:
+  Injection locations: ['q', 'scores', 'weights', 'out']
+  Bit range: 0-31
+  Test batches: 16
+  Injection index: (0, 0, 2, 7)
+  Extract position: [b=0, h=0, i=2]
+  Total tests: 4 × 16 × 32 = 2048
+
+################################################################################
+# Testing Injection Location: Q
+################################################################################
+
+--- Batch 1/16 ---
+Baseline: upper=7.319149, middle=0.910310, epsilon=1.009116
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 2/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 0/32 bits
+
+--- Batch 3/16 ---
+Baseline: upper=4.553321, middle=0.821528, epsilon=1.327520
+Detected: 0/32 bits
+
+--- Batch 4/16 ---
+Baseline: upper=0.098268, middle=0.000000, epsilon=0.949545
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 5/16 ---
+Baseline: upper=0.226957, middle=0.000000, epsilon=1.949424
+Detected: 31/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 6/16 ---
+Baseline: upper=5.203720, middle=0.255178, epsilon=0.265722
+Detected: 4/32 bits
+  Detected bits: [21, 22, 23, 30]
+
+--- Batch 7/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 0/32 bits
+
+--- Batch 8/16 ---
+Baseline: upper=0.083516, middle=0.000000, epsilon=0.847135
+Detected: 31/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 9/16 ---
+Baseline: upper=3.698028, middle=0.000000, epsilon=0.610169
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 10/16 ---
+Baseline: upper=3.784342, middle=1.329923, epsilon=1.681408
+Detected: 1/32 bits
+  Detected bits: [31]
+
+--- Batch 11/16 ---
+Baseline: upper=5.391851, middle=1.155704, epsilon=1.401919
+Detected: 0/32 bits
+
+--- Batch 12/16 ---
+Baseline: upper=0.187797, middle=0.000000, epsilon=1.549284
+Detected: 31/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 13/16 ---
+Baseline: upper=6.337884, middle=0.901349, epsilon=1.391141
+Detected: 0/32 bits
+
+--- Batch 14/16 ---
+Baseline: upper=6.254282, middle=0.421820, epsilon=0.452808
+Detected: 3/32 bits
+  Detected bits: [22, 23, 30]
+
+--- Batch 15/16 ---
+Baseline: upper=0.905484, middle=0.276926, epsilon=1.505867
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 16/16 ---
+Baseline: upper=5.678057, middle=1.200554, epsilon=1.689369
+Detected: 1/32 bits
+  Detected bits: [30]
+
+================================================================================
+Summary for location: q
+================================================================================
+Total detection rate: 168/512 (32.81%)
+
+Detection rate by bit position:
+  ~ Bit  0:  5/16 ( 31.2%)
+  ~ Bit  1:  5/16 ( 31.2%)
+  ~ Bit  2:  5/16 ( 31.2%)
+  ~ Bit  3:  5/16 ( 31.2%)
+  ~ Bit  4:  5/16 ( 31.2%)
+  ~ Bit  5:  5/16 ( 31.2%)
+  ~ Bit  6:  5/16 ( 31.2%)
+  ~ Bit  7:  5/16 ( 31.2%)
+  ~ Bit  8:  5/16 ( 31.2%)
+  ~ Bit  9:  5/16 ( 31.2%)
+  ~ Bit 10:  5/16 ( 31.2%)
+  ~ Bit 11:  5/16 ( 31.2%)
+  ~ Bit 12:  5/16 ( 31.2%)
+  ~ Bit 13:  5/16 ( 31.2%)
+  ~ Bit 14:  5/16 ( 31.2%)
+  ~ Bit 15:  5/16 ( 31.2%)
+  ~ Bit 16:  5/16 ( 31.2%)
+  ~ Bit 17:  5/16 ( 31.2%)
+  ~ Bit 18:  5/16 ( 31.2%)
+  ~ Bit 19:  5/16 ( 31.2%)
+  ~ Bit 20:  5/16 ( 31.2%)
+  ~ Bit 21:  6/16 ( 37.5%)
+  ~ Bit 22:  7/16 ( 43.8%)
+  ~ Bit 23:  7/16 ( 43.8%)
+  ~ Bit 24:  5/16 ( 31.2%)
+  ~ Bit 25:  5/16 ( 31.2%)
+  ~ Bit 26:  5/16 ( 31.2%)
+  ~ Bit 27:  5/16 ( 31.2%)
+  ~ Bit 28:  5/16 ( 31.2%)
+  ~ Bit 29:  5/16 ( 31.2%)
+  ~ Bit 30:  7/16 ( 43.8%)
+  ~ Bit 31:  6/16 ( 37.5%)
+
+################################################################################
+# Testing Injection Location: SCORES
+################################################################################
+
+--- Batch 1/16 ---
+Baseline: upper=7.319149, middle=0.910310, epsilon=1.009116
+Detected: 0/32 bits
+
+--- Batch 2/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 0/32 bits
+
+--- Batch 3/16 ---
+Baseline: upper=4.553321, middle=0.821528, epsilon=1.327520
+Detected: 0/32 bits
+
+--- Batch 4/16 ---
+Baseline: upper=0.098268, middle=0.000000, epsilon=0.949545
+Detected: 8/32 bits
+  Detected bits: [23, 24, 25, 26, 27, 28, 29, 30]
+
+--- Batch 5/16 ---
+Baseline: upper=0.226957, middle=0.000000, epsilon=1.949424
+Detected: 8/32 bits
+  Detected bits: [23, 24, 25, 26, 27, 28, 29, 30]
+
+--- Batch 6/16 ---
+Baseline: upper=5.203720, middle=0.255178, epsilon=0.265722
+Detected: 0/32 bits
+
+--- Batch 7/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 0/32 bits
+
+--- Batch 8/16 ---
+Baseline: upper=0.083516, middle=0.000000, epsilon=0.847135
+Detected: 7/32 bits
+  Detected bits: [23, 24, 25, 26, 27, 28, 29]
+
+--- Batch 9/16 ---
+Baseline: upper=3.698028, middle=0.000000, epsilon=0.610169
+Detected: 0/32 bits
+
+--- Batch 10/16 ---
+Baseline: upper=3.784342, middle=1.329923, epsilon=1.681408
+Detected: 0/32 bits
+
+--- Batch 11/16 ---
+Baseline: upper=5.391851, middle=1.155704, epsilon=1.401919
+Detected: 0/32 bits
+
+--- Batch 12/16 ---
+Baseline: upper=0.187797, middle=0.000000, epsilon=1.549284
+Detected: 8/32 bits
+  Detected bits: [23, 24, 25, 26, 27, 28, 29, 30]
+
+--- Batch 13/16 ---
+Baseline: upper=6.337884, middle=0.901349, epsilon=1.391141
+Detected: 0/32 bits
+
+--- Batch 14/16 ---
+Baseline: upper=6.254282, middle=0.421820, epsilon=0.452808
+Detected: 0/32 bits
+
+--- Batch 15/16 ---
+Baseline: upper=0.905484, middle=0.276926, epsilon=1.505867
+Detected: 8/32 bits
+  Detected bits: [23, 24, 25, 26, 27, 28, 29, 30]
+
+--- Batch 16/16 ---
+Baseline: upper=5.678057, middle=1.200554, epsilon=1.689369
+Detected: 0/32 bits
+
+================================================================================
+Summary for location: scores
+================================================================================
+Total detection rate: 39/512 (7.62%)
+
+Detection rate by bit position:
+  ✗ Bit  0:  0/16 (  0.0%)
+  ✗ Bit  1:  0/16 (  0.0%)
+  ✗ Bit  2:  0/16 (  0.0%)
+  ✗ Bit  3:  0/16 (  0.0%)
+  ✗ Bit  4:  0/16 (  0.0%)
+  ✗ Bit  5:  0/16 (  0.0%)
+  ✗ Bit  6:  0/16 (  0.0%)
+  ✗ Bit  7:  0/16 (  0.0%)
+  ✗ Bit  8:  0/16 (  0.0%)
+  ✗ Bit  9:  0/16 (  0.0%)
+  ✗ Bit 10:  0/16 (  0.0%)
+  ✗ Bit 11:  0/16 (  0.0%)
+  ✗ Bit 12:  0/16 (  0.0%)
+  ✗ Bit 13:  0/16 (  0.0%)
+  ✗ Bit 14:  0/16 (  0.0%)
+  ✗ Bit 15:  0/16 (  0.0%)
+  ✗ Bit 16:  0/16 (  0.0%)
+  ✗ Bit 17:  0/16 (  0.0%)
+  ✗ Bit 18:  0/16 (  0.0%)
+  ✗ Bit 19:  0/16 (  0.0%)
+  ✗ Bit 20:  0/16 (  0.0%)
+  ✗ Bit 21:  0/16 (  0.0%)
+  ✗ Bit 22:  0/16 (  0.0%)
+  ~ Bit 23:  5/16 ( 31.2%)
+  ~ Bit 24:  5/16 ( 31.2%)
+  ~ Bit 25:  5/16 ( 31.2%)
+  ~ Bit 26:  5/16 ( 31.2%)
+  ~ Bit 27:  5/16 ( 31.2%)
+  ~ Bit 28:  5/16 ( 31.2%)
+  ~ Bit 29:  5/16 ( 31.2%)
+  ~ Bit 30:  4/16 ( 25.0%)
+  ✗ Bit 31:  0/16 (  0.0%)
+
+################################################################################
+# Testing Injection Location: WEIGHTS
+################################################################################
+
+--- Batch 1/16 ---
+Baseline: upper=7.319149, middle=0.910310, epsilon=1.009116
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 2/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 3/16 ---
+Baseline: upper=4.553321, middle=0.821528, epsilon=1.327520
+Detected: 0/32 bits
+
+--- Batch 4/16 ---
+Baseline: upper=0.098268, middle=0.000000, epsilon=0.949545
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 5/16 ---
+Baseline: upper=0.226957, middle=0.000000, epsilon=1.949424
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 6/16 ---
+Baseline: upper=5.203720, middle=0.255178, epsilon=0.265722
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 7/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 8/16 ---
+Baseline: upper=0.083516, middle=0.000000, epsilon=0.847135
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 9/16 ---
+Baseline: upper=3.698028, middle=0.000000, epsilon=0.610169
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 10/16 ---
+Baseline: upper=3.784342, middle=1.329923, epsilon=1.681408
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 11/16 ---
+Baseline: upper=5.391851, middle=1.155704, epsilon=1.401919
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 12/16 ---
+Baseline: upper=0.187797, middle=0.000000, epsilon=1.549284
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 13/16 ---
+Baseline: upper=6.337884, middle=0.901349, epsilon=1.391141
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 14/16 ---
+Baseline: upper=6.254282, middle=0.421820, epsilon=0.452808
+Detected: 1/32 bits
+  Detected bits: [30]
+
+--- Batch 15/16 ---
+Baseline: upper=0.905484, middle=0.276926, epsilon=1.505867
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 16/16 ---
+Baseline: upper=5.678057, middle=1.200554, epsilon=1.689369
+Detected: 1/32 bits
+  Detected bits: [30]
+
+================================================================================
+Summary for location: weights
+================================================================================
+Total detection rate: 170/512 (33.20%)
+
+Detection rate by bit position:
+  ~ Bit  0:  5/16 ( 31.2%)
+  ~ Bit  1:  5/16 ( 31.2%)
+  ~ Bit  2:  5/16 ( 31.2%)
+  ~ Bit  3:  5/16 ( 31.2%)
+  ~ Bit  4:  5/16 ( 31.2%)
+  ~ Bit  5:  5/16 ( 31.2%)
+  ~ Bit  6:  5/16 ( 31.2%)
+  ~ Bit  7:  5/16 ( 31.2%)
+  ~ Bit  8:  5/16 ( 31.2%)
+  ~ Bit  9:  5/16 ( 31.2%)
+  ~ Bit 10:  5/16 ( 31.2%)
+  ~ Bit 11:  5/16 ( 31.2%)
+  ~ Bit 12:  5/16 ( 31.2%)
+  ~ Bit 13:  5/16 ( 31.2%)
+  ~ Bit 14:  5/16 ( 31.2%)
+  ~ Bit 15:  5/16 ( 31.2%)
+  ~ Bit 16:  5/16 ( 31.2%)
+  ~ Bit 17:  5/16 ( 31.2%)
+  ~ Bit 18:  5/16 ( 31.2%)
+  ~ Bit 19:  5/16 ( 31.2%)
+  ~ Bit 20:  5/16 ( 31.2%)
+  ~ Bit 21:  5/16 ( 31.2%)
+  ~ Bit 22:  5/16 ( 31.2%)
+  ~ Bit 23:  5/16 ( 31.2%)
+  ~ Bit 24:  5/16 ( 31.2%)
+  ~ Bit 25:  5/16 ( 31.2%)
+  ~ Bit 26:  5/16 ( 31.2%)
+  ~ Bit 27:  5/16 ( 31.2%)
+  ~ Bit 28:  5/16 ( 31.2%)
+  ~ Bit 29:  5/16 ( 31.2%)
+  ~ Bit 30: 15/16 ( 93.8%)
+  ~ Bit 31:  5/16 ( 31.2%)
+
+################################################################################
+# Testing Injection Location: OUT
+################################################################################
+
+--- Batch 1/16 ---
+Baseline: upper=7.319149, middle=0.910310, epsilon=1.009116
+Detected: 0/32 bits
+
+--- Batch 2/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 0/32 bits
+
+--- Batch 3/16 ---
+Baseline: upper=4.553321, middle=0.821528, epsilon=1.327520
+Detected: 0/32 bits
+
+--- Batch 4/16 ---
+Baseline: upper=0.098268, middle=0.000000, epsilon=0.949545
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 5/16 ---
+Baseline: upper=0.226957, middle=0.000000, epsilon=1.949424
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 6/16 ---
+Baseline: upper=5.203720, middle=0.255178, epsilon=0.265722
+Detected: 0/32 bits
+
+--- Batch 7/16 ---
+Baseline: upper=4.515374, middle=0.859777, epsilon=1.332065
+Detected: 0/32 bits
+
+--- Batch 8/16 ---
+Baseline: upper=0.083516, middle=0.000000, epsilon=0.847135
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 9/16 ---
+Baseline: upper=3.698028, middle=0.000000, epsilon=0.610169
+Detected: 0/32 bits
+
+--- Batch 10/16 ---
+Baseline: upper=3.784342, middle=1.329923, epsilon=1.681408
+Detected: 0/32 bits
+
+--- Batch 11/16 ---
+Baseline: upper=5.391851, middle=1.155704, epsilon=1.401919
+Detected: 0/32 bits
+
+--- Batch 12/16 ---
+Baseline: upper=0.187797, middle=0.000000, epsilon=1.549284
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 13/16 ---
+Baseline: upper=6.337884, middle=0.901349, epsilon=1.391141
+Detected: 0/32 bits
+
+--- Batch 14/16 ---
+Baseline: upper=6.254282, middle=0.421820, epsilon=0.452808
+Detected: 0/32 bits
+
+--- Batch 15/16 ---
+Baseline: upper=0.905484, middle=0.276926, epsilon=1.505867
+Detected: 32/32 bits
+  Detected bits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]...
+
+--- Batch 16/16 ---
+Baseline: upper=5.678057, middle=1.200554, epsilon=1.689369
+Detected: 0/32 bits
+
+================================================================================
+Summary for location: out
+================================================================================
+Total detection rate: 160/512 (31.25%)
+
+Detection rate by bit position:
+  ~ Bit  0:  5/16 ( 31.2%)
+  ~ Bit  1:  5/16 ( 31.2%)
+  ~ Bit  2:  5/16 ( 31.2%)
+  ~ Bit  3:  5/16 ( 31.2%)
+  ~ Bit  4:  5/16 ( 31.2%)
+  ~ Bit  5:  5/16 ( 31.2%)
+  ~ Bit  6:  5/16 ( 31.2%)
+  ~ Bit  7:  5/16 ( 31.2%)
+  ~ Bit  8:  5/16 ( 31.2%)
+  ~ Bit  9:  5/16 ( 31.2%)
+  ~ Bit 10:  5/16 ( 31.2%)
+  ~ Bit 11:  5/16 ( 31.2%)
+  ~ Bit 12:  5/16 ( 31.2%)
+  ~ Bit 13:  5/16 ( 31.2%)
+  ~ Bit 14:  5/16 ( 31.2%)
+  ~ Bit 15:  5/16 ( 31.2%)
+  ~ Bit 16:  5/16 ( 31.2%)
+  ~ Bit 17:  5/16 ( 31.2%)
+  ~ Bit 18:  5/16 ( 31.2%)
+  ~ Bit 19:  5/16 ( 31.2%)
+  ~ Bit 20:  5/16 ( 31.2%)
+  ~ Bit 21:  5/16 ( 31.2%)
+  ~ Bit 22:  5/16 ( 31.2%)
+  ~ Bit 23:  5/16 ( 31.2%)
+  ~ Bit 24:  5/16 ( 31.2%)
+  ~ Bit 25:  5/16 ( 31.2%)
+  ~ Bit 26:  5/16 ( 31.2%)
+  ~ Bit 27:  5/16 ( 31.2%)
+  ~ Bit 28:  5/16 ( 31.2%)
+  ~ Bit 29:  5/16 ( 31.2%)
+  ~ Bit 30:  5/16 ( 31.2%)
+  ~ Bit 31:  5/16 ( 31.2%)
+
+================================================================================
+Final Summary
+================================================================================
+
+Location     Detection Rate       Percentage  
+--------------------------------------------------
+q            168/512 ( 32.81%)                    
+scores        39/512 (  7.62%)                    
+weights      170/512 ( 33.20%)                    
+out          160/512 ( 31.25%)                    
+
+================================================================================
+Saving results to JSON...
+================================================================================
+✓ Full results saved to: tinylm_fault_test_results_20251211_215516.json
+✓ Simplified summary saved to: tinylm_fault_test_summary_20251211_215516.json
+
+Overall detection rate: 537/2048 (26.22%)
+
+================================================================================
+Test completed!
+================================================================================
+
+
+
+================================================================================
+TinyLM Fault Injection Test - Analysis
+File: tinylm_fault_test_summary_20251211_215516.json
+================================================================================
+
+1. Model Configuration:
+   - Vocabulary size: 38
+   - Embedding dim: 64
+   - Heads: 4, Head dim: 16
+   - Block size: 32
+
+2. Test Configuration:
+   - Injection index: [0, 0, 2, 7]
+   - Extract position: [0, 0, 2]
+   - Test batches: 16
+   - Bit range: 0-31
+   - Detection condition: upper <= epsilon OR epsilon <= middle
+   - Total tests: 2048
+
+3. Training Information:
+   - Training steps: 400
+   - Learning rate: 0.0001
+   - Random seed: 42
+
+4. Overall Detection Results:
+   Detection Rate: 537/2048 (26.22%)
+
+5. Results by Injection Location:
+   Location     Detected   Total      Rate      
+   ------------------------------------------
+   weights      170        512         33.20%
+   q            168        512         32.81%
+   out          160        512         31.25%
+   scores       39         512          7.62%
+
+================================================================================
+
+Found latest full results: ./tinylm_fault_test_results_20251211_215516.json
+
+================================================================================
+TinyLM Fault Injection Test - Analysis
+File: tinylm_fault_test_results_20251211_215516.json
+================================================================================
+
+1. Model Configuration:
+   - Vocabulary size: 38
+   - Embedding dim: 64
+   - Heads: 4, Head dim: 16
+   - Block size: 32
+
+2. Test Configuration:
+   - Injection index: [0, 0, 2, 7]
+   - Extract position: [0, 0, 2]
+   - Test batches: 16
+   - Bit range: 0-31
+   - Detection condition: upper <= epsilon OR epsilon <= middle
+   - Total tests: 2048
+
+3. Training Information:
+   - Training steps: 400
+   - Learning rate: 0.0001
+   - Random seed: 42
+
+4. Overall Detection Results:
+   Detection Rate: 537/2048 (26.22%)
+
+5. Results by Injection Location:
+   Location     Detected   Total      Rate      
+   ------------------------------------------
+   weights      170        512         33.20%
+   q            168        512         32.81%
+   out          160        512         31.25%
+   scores       39         512          7.62%
+
+6. Detailed Bit-wise Analysis:
+
+   Location: Q
+   Overall: 168/512 (32.81%)
+   Top 5 best bits: bit22(44%), bit23(44%), bit30(44%), bit21(38%), bit31(38%)
+   Top 5 worst bits: bit0(31%), bit1(31%), bit2(31%), bit3(31%), bit4(31%)
+   Bit distribution: 0 fully detected, 32 partial, 0 not detected
+
+   Location: SCORES
+   Overall: 39/512 (7.62%)
+   Top 5 best bits: bit23(31%), bit24(31%), bit25(31%), bit26(31%), bit27(31%)
+   Top 5 worst bits: bit0(0%), bit1(0%), bit2(0%), bit3(0%), bit4(0%)
+   Bit distribution: 0 fully detected, 8 partial, 24 not detected
+
+   Location: WEIGHTS
+   Overall: 170/512 (33.20%)
+   Top 5 best bits: bit30(94%), bit0(31%), bit1(31%), bit2(31%), bit3(31%)
+   Top 5 worst bits: bit0(31%), bit1(31%), bit2(31%), bit3(31%), bit4(31%)
+   Bit distribution: 0 fully detected, 32 partial, 0 not detected
+
+   Location: OUT
+   Overall: 160/512 (31.25%)
+   Top 5 best bits: bit0(31%), bit1(31%), bit2(31%), bit3(31%), bit4(31%)
+   Top 5 worst bits: bit0(31%), bit1(31%), bit2(31%), bit3(31%), bit4(31%)
+   Bit distribution: 0 fully detected, 32 partial, 0 not detected
+
+7. Batch Variability Analysis:
+
+   Location: Q
+   Mean detection rate: 32.81% (±45.62%)
+   Range: [0.00%, 100.00%]
+
+   Location: SCORES
+   Mean detection rate: 7.62% (±11.69%)
+   Range: [0.00%, 25.00%]
+
+   Location: WEIGHTS
+   Mean detection rate: 33.20% (±46.52%)
+   Range: [0.00%, 100.00%]
+
+   Location: OUT
+   Mean detection rate: 31.25% (±47.87%)
+   Range: [0.00%, 100.00%]
+
+================================================================================

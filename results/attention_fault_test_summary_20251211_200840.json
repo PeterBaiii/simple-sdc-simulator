@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-11T20:08:40.602240",
+    "device": "cuda",
+    "configuration": {
+      "B": 2,
+      "H": 4,
+      "L": 8,
+      "Dh": 16,
+      "injection_index": [
+        0,
+        0,
+        2,
+        7
+      ],
+      "extract_position": [
+        0,
+        0,
+        2
+      ],
+      "injection_locations": [
+        "q",
+        "scores",
+        "weights",
+        "out"
+      ],
+      "sigmas": [
+        1.0,
+        1.6666666666666667
+      ],
+      "n_vectors": 16,
+      "bit_range": [
+        0,
+        32
+      ],
+      "total_tests": 4096
+    }
+  },
+  "summary": {
+    "by_injection_location": {
+      "q": {
+        "detected": 142,
+        "total": 1024,
+        "rate_percent": 13.87
+      },
+      "scores": {
+        "detected": 84,
+        "total": 1024,
+        "rate_percent": 8.2
+      },
+      "weights": {
+        "detected": 68,
+        "total": 1024,
+        "rate_percent": 6.64
+      },
+      "out": {
+        "detected": 277,
+        "total": 1024,
+        "rate_percent": 27.05
+      }
+    },
+    "by_sigma": {
+      "1.0": {
+        "detected": 192,
+        "total": 2048,
+        "rate_percent": 9.38
+      },
+      "1.6666666666666667": {
+        "detected": 379,
+        "total": 2048,
+        "rate_percent": 18.51
+      }
+    },
+    "overall": {
+      "detected": 571,
+      "total": 4096,
+      "rate_percent": 13.94
+    }
+  },
+  "results_by_location_and_sigma": {
+    "q": {
+      "1.0": {
+        "detection_count": 57,
+        "total_tests": 512,
+        "detection_rate_percent": 11.13
+      },
+      "1.6666666666666667": {
+        "detection_count": 85,
+        "total_tests": 512,
+        "detection_rate_percent": 16.6
+      }
+    },
+    "scores": {
+      "1.0": {
+        "detection_count": 29,
+        "total_tests": 512,
+        "detection_rate_percent": 5.66
+      },
+      "1.6666666666666667": {
+        "detection_count": 55,
+        "total_tests": 512,
+        "detection_rate_percent": 10.74
+      }
+    },
+    "weights": {
+      "1.0": {
+        "detection_count": 31,
+        "total_tests": 512,
+        "detection_rate_percent": 6.05
+      },
+      "1.6666666666666667": {
+        "detection_count": 37,
+        "total_tests": 512,
+        "detection_rate_percent": 7.23
+      }
+    },
+    "out": {
+      "1.0": {
+        "detection_count": 75,
+        "total_tests": 512,
+        "detection_rate_percent": 14.65
+      },
+      "1.6666666666666667": {
+        "detection_count": 202,
+        "total_tests": 512,
+        "detection_rate_percent": 39.45
+      }
+    }
+  }
+}
