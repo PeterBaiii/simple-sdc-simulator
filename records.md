@@ -1,6 +1,6 @@
 [TOC]
 
-# Logs in Experiments
+# Records in Experiments
 
 ## NaN in Bounds Checking
 

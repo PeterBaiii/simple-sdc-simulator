@@ -1,0 +1,38 @@
+# Ignore all Python bytecode cache dirs
+__pycache__/
+**/__pycache__/
+
+# Ignore VSCode settings folder
+.vscode/
+
+# Ignore everything under results by default
+results/**
+
+# Keep the results directory itself
+!results/
+
+!results/attention_fault_test_results.json
+!results/attention_fault_test_summary.json
+!results/attention_fault_test_results_heatmap.png
+!results/attention_fault_test_results_visualization.png
+
+!results/tinylm_fault_test_results.json
+!results/tinylm_fault_test_summary.json
+!results/tinylm_fault_test_results_variance.png
+!results/tinylm_fault_test_results_visualization.png
+
+!results/*.txt
+
+
+TinyLM/**
+
+!TinyLM/
+
+!TinyLM/analyzer.py
+!TinyLM/visualizer.py
+!TinyLM/tinylm_injection.py
+
+injected_attn.py
+minimal_task.py
+minimal_task_fast.py
+torch_attn_substitute.py
