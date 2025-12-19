@@ -1,5 +1,3 @@
-[TOC]
-
 # Records in Experiments
 
 ## NaN in Bounds Checking
